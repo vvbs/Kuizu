@@ -18,10 +18,10 @@ const resultsContainer = document.getElementById('results');
 
 function buildQuiz() {
   const output = [];
-  
+
   quizData.forEach((questionData, questionIndex) => {
     const choices = [];
-    
+
     questionData.choices.forEach((choice, choiceIndex) => {
       choices.push(
         `<label>
@@ -30,24 +30,24 @@ function buildQuiz() {
         </label>`
       );
     });
-    
+
     output.push(
       `<div class="question">${questionData.question}</div>
       <div class="choices">${choices.join('')}</div>`
     );
   });
-  
+
   quizContainer.innerHTML = output.join('');
 }
 
 function showResults() {
   const answerContainers = quizContainer.querySelectorAll('.choices');
   let score = 0;
-  
+
   quizData.forEach((questionData, questionIndex) => {
     const answerContainer = answerContainers[questionIndex];
     const selected = answerContainer.querySelector(`input[name="question${questionIndex}"]:checked`);
-    
+
     if (selected) {
       const selectedAnswer = parseInt(selected.value);
       if (selectedAnswer === questionData.correctAnswer) {
@@ -55,7 +55,7 @@ function showResults() {
       }
     }
   });
-  
+
   resultsContainer.innerHTML = `正解数: ${score} / ${quizData.length}`;
 }
 
