@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+#quiz {
+  margin-bottom: 10px;
+}
+
+#submit {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+#results {
+  margin-top: 20px;
+  font-weight: bold;
+}
